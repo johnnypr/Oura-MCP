@@ -1,0 +1,26 @@
+[project]
+name = "oura-mcp"
+version = "0.1.0"
+description = "MCP server for Oura Ring — query your sleep, readiness, activity, heart rate and more directly from the Oura API v2"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp[cli]>=1.6.0",
+    "requests>=2.32.0",
+]
+
+[project.scripts]
+oura-mcp-server = "oura_mcp.server:main"
+oura-mcp-auth = "oura_mcp.auth:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["oura_mcp"]
+
+[tool.uv]
+dev-dependencies = [
+    "python-dotenv>=1.0",
+]
